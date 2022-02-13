@@ -26,7 +26,7 @@ def menu():
 
 #instructions
 def rules():
-    rules = pygame.image.load('Game Images\rules.png')
+    rules = pygame.image.load('Game Images\Rules.png')
     rules = pygame.transform.scale(rules, (640,480)) 
     
     while True:
@@ -68,6 +68,7 @@ def chooseYourCharacter():
                 elif event.pos[0] in range (458,640) and event.pos[1] in range(264,480):
                     ChooseDifficulty(3)
                 
+ #difficulty Selection               
 def ChooseDifficulty(character):
     image = pygame.image.load('Game Images\difficulty.png')
     image = pygame.transform.scale(image, (640,480))
@@ -92,11 +93,13 @@ def ChooseDifficulty(character):
 def game(character, difficulty):
     #background images
     
+    #backround music
     mixer.init()
     mixer.music.load('Sounds/StarSong.wav')
     mixer.music.set_volume(0.05)
     mixer.music.play(-1)
 
+    #backround image
     image = pygame.image.load('Game Images\mtn_background.png') 
     image = pygame.transform.scale(image, (640,480))
     bgx = 0
@@ -217,7 +220,7 @@ def game(character, difficulty):
             sprite.rect = image.get_rect()
 
             rec = pygame.image.load('Game Images\Rec.png')
-            rec = pygame.transform.rotozoom(rec,0,0.2)
+            rec = pygame.transform.rotozoom(rec,0,0.1)
 
             coinText = font.render("%d"%tuple([coin_count]),1,(10))
             sprite.image.blit(rec,(200,100))
